@@ -18,14 +18,21 @@ public class DeckOfCards {
 		System.out.println();
 		System.out.println("Enter the number of players \n");
 		int maxPlayers = sc.nextInt();
-
-		System.out.println("Maximum numbers of players are    : " + maxPlayers + "\n");
-		System.out.println("Players Sequence : ");
-		playerSequence(maxPlayers);
-		System.out.println("Please Enter how many time you want to suffle");
-		int numberoftimesuffle = sc.nextInt();
-		System.out.println("Cards distributed based on players sequence");
-		DeckOfCards.ShuffletheCards(numberoftimesuffle, Cards, maxPlayers);
+		 if(maxPlayers > 2 && maxPlayers <= 4){
+			    System.out.println("Maximum numbers of players are    : " + maxPlayers + "\n");
+				System.out.println("Players Sequence : ");
+				playerSequence(maxPlayers);
+				System.out.println("Please Enter how many time you want to suffle");
+				int numberoftimesuffle = sc.nextInt();
+				
+				System.out.println("Cards distributed based on players sequence");
+				DeckOfCards.ShuffletheCards(numberoftimesuffle, Cards, maxPlayers); 
+			 
+		 }else {
+			 
+			 System.out.println("Invalid Number of players");
+		 }
+		
 
 	}
 
