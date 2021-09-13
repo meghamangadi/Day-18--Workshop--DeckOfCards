@@ -15,15 +15,17 @@ public class DeckOfCards {
 		System.out.println("Total Cards in Pack are 52");
 		System.out.println();
 		DeckOfCards.displayCards2DArrayAllCards(Cards);
+		System.out.println();
 		System.out.println("Enter the number of players \n");
 		int maxPlayers = sc.nextInt();
-		 
-		System.out.println("Maximum numbers of players are    : " + maxPlayers + "\n"); 
+
+		System.out.println("Maximum numbers of players are    : " + maxPlayers + "\n");
 		System.out.println("Players Sequence : ");
 		playerSequence(maxPlayers);
 		System.out.println("Please Enter how many time you want to suffle");
-		int numberoftimesuffle=sc.nextInt();		
-		DeckOfCards.ShuffletheCards(numberoftimesuffle,Cards,maxPlayers);
+		int numberoftimesuffle = sc.nextInt();
+		System.out.println("Cards distributed based on players sequence");
+		DeckOfCards.ShuffletheCards(numberoftimesuffle, Cards, maxPlayers);
 
 	}
 
@@ -54,7 +56,8 @@ public class DeckOfCards {
 		}
 
 	}
-	public static void ShuffletheCards(int numberoftimes, String[][] Cards,int noPlayers) {
+
+	public static void ShuffletheCards(int numberoftimes, String[][] Cards, int noPlayers) {
 		int rowforfirstcard = 0;
 		int columnforfirstcard = 0;
 		int rowforsecondcard = 0;
@@ -71,8 +74,9 @@ public class DeckOfCards {
 					Cards);
 
 		}
-		DeckOfCards.displayCards2DArray(newcards,noPlayers);
+		DeckOfCards.displayCards2DArray(newcards, noPlayers);
 	}
+
 	private static String[][] shuffleTwoCards(int rowforfirstcard, int columnforfirstcard, int rowforsecondcard,
 			int columnforsecondcard, String[][] Cards) {
 
@@ -83,21 +87,20 @@ public class DeckOfCards {
 		return Cards;
 
 	}
-	public static void displayCards2DArray(String[][] cards,int noOfPlayer)
-	{
+
+	public static void displayCards2DArray(String[][] cards, int noOfPlayer) {
 		System.out.println();
-		for(int i=0;i<noOfPlayer;i++)
-		{
-			int player=i+1;
-			System.out.println("Player  :"+player);
-			for(int j=0;j<9;j++)
-			{
-			 System.out.print(cards[i][j]+" ");
+		for (int i = 0; i < noOfPlayer; i++) {
+			int player = i + 1;
+			System.out.println("Player  :" + player);
+			for (int j = 0; j < 9; j++) {
+				System.out.print(cards[i][j] + " ");
 			}
 			System.out.println();
 		}
-		
+
 	}
+
 	public static int shuffletheCardsrow() {
 		int row = (int) (Math.random() * ((3 - 0) + 1)) + 0;
 
