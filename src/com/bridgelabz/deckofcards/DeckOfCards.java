@@ -109,9 +109,9 @@ public class DeckOfCards {
 	}
 
 	public static int shuffletheCardscolumn() {
-		int col = (int) (Math.random() * ((12 - 0) + 1)) + 0;
+		int column = (int) (Math.random() * ((12 - 0) + 1)) + 0;
 
-		return col;
+		return column;
 
 	}
 
