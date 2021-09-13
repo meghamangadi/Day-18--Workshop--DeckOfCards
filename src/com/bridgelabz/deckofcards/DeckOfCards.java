@@ -8,7 +8,8 @@ public class DeckOfCards {
 		Scanner sc = new Scanner(System.in);
 
 		String[][] players = new String[4][13];
-
+		String[][] cardCollection = new String[4][13];
+		 
 		String[] suits = { "Clubs", "Diamonds", "Hearts", "Spades" };
 		String[] Ranks = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
 		String[][] Cards = DeckOfCards.deckOfCard2DArray(suits, Ranks, players);
@@ -18,6 +19,7 @@ public class DeckOfCards {
 		System.out.println();
 		System.out.println("Enter the number of players \n");
 		int maxPlayers = sc.nextInt();
+		
 		 if(maxPlayers > 2 && maxPlayers <= 4){
 			    System.out.println("Maximum numbers of players are    : " + maxPlayers + "\n");
 				System.out.println("Players Sequence : ");
@@ -81,6 +83,7 @@ public class DeckOfCards {
 					Cards);
 
 		}
+		
 		DeckOfCards.displayCards2DArray(newcards, noPlayers);
 	}
 
@@ -94,15 +97,55 @@ public class DeckOfCards {
 		return Cards;
 
 	}
+	
+	
+	public static void deckOfCard2DArray(String[][] cards, int noOfPlayer,int m) {
+		
+
+		System.out.println();
+		int Countclubs = 0, CountDiamonds = 0, CountHearts = 0, CountSpades = 0;
+		for (int i = m; i < noOfPlayer;i++) {
+			 
+			for (int j = 0; j < 9; j++) {
+				String value =cards[i][j];
+				if(value.startsWith("C")) {
+				 
+					 Countclubs++;
+				}else if(value.startsWith("D")){
+				  
+					 CountDiamonds++;
+				}else if(value.startsWith("H"))
+						{
+					 CountHearts++;
+						}else if(value.startsWith("S")){
+					 CountSpades++;
+						}
+				 }
+			
+			System.out.println("Clubs " +Countclubs   + "    Diamonds " + CountDiamonds+ "   Hearts " + CountHearts + "   Spades " + CountSpades );
+			break;
+				 
+			}
+		 
+			System.out.println();
+		}
+
+	
+		
+	 
 
 	public static void displayCards2DArray(String[][] cards, int noOfPlayer) {
 		System.out.println();
 		for (int i = 0; i < noOfPlayer; i++) {
 			int player = i + 1;
 			System.out.println("Player  :" + player);
+			
 			for (int j = 0; j < 9; j++) {
+				 
 				System.out.print(cards[i][j] + " ");
 			}
+			deckOfCard2DArray( cards,   noOfPlayer,i);
+			
 			System.out.println();
 		}
 
